@@ -11,11 +11,18 @@ app.get("/", (req, res) => {
   res.render("index");
  });
 
+ app.get("/index.html", (req, res) => {
+  res.render("index");
+ });
+
+app.get("/inventory.html", (req, res) => {
+  res.render("inventory");
+ });
+
 app.get("/elements.html", (req, res) => {
   res.render("elements");
  });
 
- 
 app.listen(3000, () => {
   console.log("server started on port 3000");
 });
