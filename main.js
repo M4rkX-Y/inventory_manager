@@ -10,17 +10,13 @@ app.use(express.static(path.join(__dirname, "/public")));
 app.get("/", (req, res) => {
   res.render("index");
  });
-
- app.get("/index.html", (req, res) => {
+ 
+app.get("/index.html", (req, res) => {
   res.render("index");
  });
 
 app.get("/inventory.html", (req, res) => {
   res.render("inventory");
- });
-
-app.get("/elements.html", (req, res) => {
-  res.render("elements");
  });
 
 app.listen(3000, () => {
