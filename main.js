@@ -15,6 +15,14 @@ app.get("/index.html", (req, res) => {
   res.render("index");
  });
 
+ app.get("/elements.html", (req, res) => {
+  res.render("elements");
+ });
+
+app.get("/item.html", (req, res) => {
+  res.render("item");
+ });
+
 app.get("/inventory.html", (req, res) => {
   res.render("inventory");
  });
