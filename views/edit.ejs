@@ -18,7 +18,7 @@
 
 							<!-- Header -->
 								<header id="header">
-									<h1>Item 1</h1>
+									<h1>Edit an Item</h1>
 								</header>
 
 							<!-- Section -->
@@ -26,40 +26,41 @@
                                 <form method="post" action="#">
                                     <div class="row gtr-uniform">
                                         <div class="col-6 col-12-xsmall">
-                                            <h3>Name:</h3>
-                                            <h4> Item 1 </h4>
+                                            <input type="text" placeholder="Name" />
                                         </div>
                                         <div class="col-6 col-12-xsmall">
-                                            <h3>Supplier:</h3>
-                                            <h4> Ante turpis integer aliquet porttitor. </h4>
+                                            <input type="text" placeholder="Supplier" />
                                         </div>
-                                        <div class="col-6 col-12-xsmall">
-                                            <h3>Bin:</h3>
-                                            <h4> ### </h4>
+                                        <div class="col-4 col-12-xsmall">
+                                            <input type="text" placeholder="Bin" />
                                         </div>
-                                        <div class="col-6 col-12-xsmall">
-                                            <h3>Location:</h3>
-                                            <h4> ### </h4>
+                                        <div class="col-4 col-12-xsmall">
+                                            <input type="text" placeholder="Location" />
                                         </div>
-                                        <div class="col-6 col-12-xsmall">
-                                            <h3>Number:</h3>
-                                            <h4> ### </h4>
+                                        <div class="col-4 col-12-xsmall">
+                                            <input type="text" placeholder="Number" />
                                         </div>
-                                        <div class="col-6 col-12-xsmall">
-                                            <h3>Type:</h3>
-                                            <h4> Consumable </h4>
+                                        <!-- Break -->
+                                        
+                                        <div class="col-3 col-12-small">
+                                            <input type="radio" id="demo-priority-low" name="demo-priority">
+                                            <label for="demo-priority-low">Tool</label>
+                                        </div>
+                                        <div class="col-3 col-12-small">
+                                            <input type="radio" id="demo-priority-normal" name="demo-priority">
+                                            <label for="demo-priority-normal">Consumable</label>
                                         </div>
             
                                         <!-- Break -->
                                         
                                         <div class="col-12">
-                                            <h3>Notes:</h3>
-                                            <p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+                                            <textarea name="demo-message" id="demo-message" placeholder="Notes" rows="6"></textarea>
                                         </div>
                                         <!-- Break -->
                                         <div class="col-12">
                                             <ul class="actions">
-                                                <li><a href="edit.html" class="button primary">Edit</a></li>
+                                                <li><input type="submit" value="Edit" class="primary"/>
+                                                <li><input type="reset" value="Reset" /></li>
                                                 <li><a href="inventory.html" class="button">Back</a></li>
                                             </ul>
                                         </div>

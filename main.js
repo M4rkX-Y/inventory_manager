@@ -19,7 +19,16 @@ app.get("/index.html", (req, res) => {
   res.render("elements");
  });
 
-app.get("/item.html", (req, res) => {
+app.get("/add.html", (req, res) => {
+  res.render("add");
+ });
+
+ app.get("/edit.html", (req, res) => {
+  res.render("edit");
+ });
+
+
+ app.get("/item.html", (req, res) => {
   res.render("item");
  });
 
