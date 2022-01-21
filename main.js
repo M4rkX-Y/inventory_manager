@@ -1,11 +1,25 @@
 const express = require("express");
 var path = require("path")
 const app = express();
-
+var mysql = require('mysql');
+var conn = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "root"
+});
 
 app.set("view engine", "ejs");
 app.use(express.static('public'));
 app.use(express.static(path.join(__dirname, "/public")));
+
+
+app.get('/data', function(req, res, next) {
+    var sql="SELECT * FROM `7419-inventory`.items ORDER BY Item ASC";
+    conn.query(sql, function (err, data, fields) {
+    if (err) throw err;
+    res.json(data)
+  });
+});
 
 app.get("/", (req, res) => {
   res.render("index");
