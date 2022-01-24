@@ -60,6 +60,7 @@
                                         <div class="col-12">
                                             <ul class="actions">
                                                 <li><a href="edit.html" class="button primary">Edit</a></li>
+                                                <li><a onclick="myconfirm()" class="button">Delete</a></li>
                                                 <li><a href="inventory.html" class="button">Back</a></li>
                                             </ul>
                                         </div>
@@ -76,6 +77,14 @@
 			<script src="/js/breakpoints.min.js"></script>
 			<script src="/js/util.js"></script>
 			<script src="/js/main.js"></script>
+            <script>
+                function myconfirm() {
+                  var txt;
+                  if (confirm("Are you sure to delete the entry?")) {
+                    window.location.href = "inventory.html";
+                  } 
+                }
+                </script>
 
 	</body>
 </html>
