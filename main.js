@@ -16,6 +16,8 @@ const limiter = rateLimit({
 });
 //app.use(limiter);
 
+var search_result={}
+
 
 app.set("view engine", "ejs");
 app.use(express.static('public'));
@@ -25,13 +27,6 @@ app.use(helmet());
 app.use(limiter);
 
 
-app.get('/data', function(req, res, next) {
-    var sql="SELECT * FROM `7419-inventory`.items ORDER BY Item ASC";
-    conn.query(sql, function (err, data, fields) {
-    if (err) throw err;
-    res.json(data)
-  });
-});
 
 app.get("/", (req, res) => {
   res.render("index");
@@ -53,7 +48,7 @@ app.get("/add.html", (req, res) => {
   res.render("edit");
  });
 
- app.get("/item.html", function(req,res){
+ app.post('/item', function(req,res){
   console.log(req.body);
   res.render("item");
  });
@@ -67,6 +62,14 @@ app.listen(3000, () => {
 });
 
 
+app.get('/data', function(req, res, next) {
+    var sql="SELECT * FROM `7419-inventory`.items ORDER BY Item ASC";
+    conn.query(sql, function (err, data, fields) {
+    if (err) throw err;
+    res.json(data)
+  });
+});
+
 
 app.post('/add', function(req,res){
     console.log("Post Success");
@@ -78,4 +81,18 @@ app.post('/add', function(req,res){
     res.send("New item has been added into the database with Name = "+req.body.item);
     res.render("inventory");
     });
+});
+
+app.post('/search', function(req,res){
+  console.log("Post Success");
+    conn.query("SELECT * FROM `7419-inventory`.items WHERE Item LIKE '%" +req.body.query+"%' OR Bin LIKE '%" +req.body.query+"%' OR Supplier LIKE '%" +req.body.query+"%'", function (err, search_data, fields) {
+    if (err) throw err;
+    search_result = search_data
+    //console.log([req.body.query,search_data])
+    res.render("search_inventory");
+  });
+});
+
+app.get('/search_data', function(req, res, next) {
+  res.json(search_result);
 });

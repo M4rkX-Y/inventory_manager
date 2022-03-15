@@ -18,19 +18,13 @@
 
 							<!-- Header -->
 								<header id="header">
-									<h1>Inventory</h1>
+									<h1>Search Results</h1>
 								</header>
 
 							<!-- Section -->
 							<section>
-								<ul class="actions">
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<div class="col-6 col-12-xsmall">
-										<a href="add.html" class="button primary fit small">Add Item</a>
-									</div>
-								</ul>
-								<div class="table-wrapper" data-url="/data">
-									<table class="table-inventory">
+								<div class="table-search-wrapper" data-url="/search_data">
+									<table class="table-search">
 										<thead>
 											<tr>
 												<th>Item<input type="image" src="images/Sort.jpg" class="sort_item" alt="Sort"/></th>
@@ -54,13 +48,13 @@
 						<div class="inner">
 
 							<!-- Search -->
-							<section id="search" class="alt">
-								<form method="post" action="/search">
-									<fieldset>
-									<input type="text" name="query" id="query" placeholder="Search" />
-									</fieldset>
-								</form>
-							</section>
+                            <section id="search" class="alt">
+                                <form method="post" action="/search">
+                                    <fieldset>
+                                    <input type="text" name="query" id="query" placeholder="Search" />
+                                    </fieldset>
+                                </form>
+                            </section>
 
 							<!-- Menu -->
 								<nav id="menu">
@@ -84,7 +78,7 @@
 			<script src="/js/breakpoints.min.js"></script>
 			<script src="/js/util.js"></script>
 			<script src="/js/main.js"></script>
-			<script src="/js/inventory.js"></script>
+			<script src="/js/search_inventory.js"></script>
 
 	</body>
 </html>

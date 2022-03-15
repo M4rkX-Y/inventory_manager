@@ -1,67 +1,43 @@
 {
     var sort_option=[0, 0, 0, 0, 0]
+    var num=50
 
-
-    for (const root of document.querySelectorAll(".table-wrapper[data-url]")){
+    for (const root of document.querySelectorAll(".table-search-wrapper[data-url]")){
         updateTable(root)
     }
-    
-    for (const root of document.querySelectorAll(".table-wrapper-low[data-url]")){
-        updateTable_low(root)
-    }
-    
-    async function updateTable_low(root){
-        const table = root.querySelector(".table-inventory")
-        const respond = await fetch(root.dataset.url)
-        const data = await respond.json()
 
-        data.sort((a, b) => {
-            return a.Number-b.Number
-          })
-
-          for (var i = 0; i < 50; i++){
-            table.querySelector("tbody").insertAdjacentHTML("beforeend",`
-                <tr>
-                    <td><a href="item.html">${data[i].Item}</td>
-                    <td>${data[i].Supplier}</td>
-                    <td>${data[i].Bin}</td>
-                    <td>${data[i].Location}</td>
-                    <td>${data[i].Number}</td>
-            `);
-        }
-    }
 
     document.querySelector(".sort_item").addEventListener("click", () => {
         sort_option[0]=sort_option[0]+1     
-        for (const root of document.querySelectorAll(".table-wrapper[data-url]")){
+        for (const root of document.querySelectorAll(".table-search-wrapper[data-url]")){
             updateTable_item(root, sort_option)
         }
     }
     )
     document.querySelector(".sort_supplier").addEventListener("click", () => {
         sort_option[1]=sort_option[1]+1     
-        for (const root of document.querySelectorAll(".table-wrapper[data-url]")){
+        for (const root of document.querySelectorAll(".table-search-wrapper[data-url]")){
             updateTable_supplier(root, sort_option)
         }
     }
     )
     document.querySelector(".sort_bin").addEventListener("click", () => {
         sort_option[2]=sort_option[2]+1     
-        for (const root of document.querySelectorAll(".table-wrapper[data-url]")){
+        for (const root of document.querySelectorAll(".table-search-wrapper[data-url]")){
             updateTable_bin(root, sort_option)
         }
     }
     )
     document.querySelector(".sort_location").addEventListener("click", () => {
         sort_option[3]=sort_option[3]+1     
-        for (const root of document.querySelectorAll(".table-wrapper[data-url]")){
+        for (const root of document.querySelectorAll(".table-search-wrapper[data-url]")){
             updateTable_location(root, sort_option)
         }
     }
     )
     document.querySelector(".sort_number").addEventListener("click", () => {
         sort_option[4]=sort_option[4]+1     
-        for (const root of document.querySelectorAll(".table-wrapper[data-url]")){
+        for (const root of document.querySelectorAll(".table-search-wrapper[data-url]")){
             updateTable_number(root, sort_option)
         }
     }
@@ -82,17 +58,13 @@
       }
 
     async function updateTable(root){
-        const table = root.querySelector(".table-inventory")
+        const table = root.querySelector(".table-search")
         const respond = await fetch(root.dataset.url)
         const data = await respond.json()
 
-        data.sort((a, b) => {
-            return compareObjects(a, b, 'Item')
-          })
-
         table.querySelector("tbody").innerHTML="";
 
-        for (var i = 0; i < data.length; i++){
+        for (var i = 0; i < num; i++){
             table.querySelector("tbody").insertAdjacentHTML("beforeend",`
                 <tr>
                     <td><a href="item.html">${data[i].Item}</td>
@@ -107,7 +79,7 @@
 
 
     async function updateTable_item(root, sort_option){
-        const table = root.querySelector(".table-inventory")
+        const table = root.querySelector(".table-search")
         const respond = await fetch(root.dataset.url)
         const data = await respond.json()
         
@@ -126,7 +98,7 @@
 
         table.querySelector("tbody").innerHTML="";
 
-        for (var i = 0; i < data.length; i++){
+        for (var i = 0; i < num; i++){
             table.querySelector("tbody").insertAdjacentHTML("beforeend",`
                 <tr>
                     <td><a href="item.html">${data[i].Item}</td>
@@ -140,7 +112,7 @@
 
 
     async function updateTable_supplier(root, sort_option){
-        const table = root.querySelector(".table-inventory")
+        const table = root.querySelector(".table-search")
         const respond = await fetch(root.dataset.url)
         const data = await respond.json()
         
@@ -159,7 +131,7 @@
 
         table.querySelector("tbody").innerHTML="";
 
-        for (var i = 0; i < data.length; i++){
+        for (var i = 0; i < num; i++){
             table.querySelector("tbody").insertAdjacentHTML("beforeend",`
                 <tr>
                     <td><a href="item.html">${data[i].Item}</td>
@@ -174,7 +146,7 @@
 
 
     async function updateTable_bin(root, sort_option){
-        const table = root.querySelector(".table-inventory")
+        const table = root.querySelector(".table-search")
         const respond = await fetch(root.dataset.url)
         const data = await respond.json()
         
@@ -193,7 +165,7 @@
 
         table.querySelector("tbody").innerHTML="";
 
-        for (var i = 0; i < data.length; i++){
+        for (var i = 0; i < num; i++){
             table.querySelector("tbody").insertAdjacentHTML("beforeend",`
                 <tr>
                     <td><a href="item.html">${data[i].Item}</td>
@@ -208,7 +180,7 @@
 
 
     async function updateTable_location(root, sort_option){
-        const table = root.querySelector(".table-inventory")
+        const table = root.querySelector(".table-search")
         const respond = await fetch(root.dataset.url)
         const data = await respond.json()
         
@@ -227,7 +199,7 @@
 
         table.querySelector("tbody").innerHTML="";
 
-        for (var i = 0; i < data.length; i++){
+        for (var i = 0; i < num; i++){
             table.querySelector("tbody").insertAdjacentHTML("beforeend",`
                 <tr>
                     <td><a href="item.html">${data[i].Item}</td>
@@ -241,7 +213,7 @@
 
 
     async function updateTable_number(root, sort_option){
-        const table = root.querySelector(".table-inventory")
+        const table = root.querySelector(".table-search")
         const respond = await fetch(root.dataset.url)
         const data = await respond.json()
         
@@ -260,7 +232,7 @@
 
         table.querySelector("tbody").innerHTML="";
 
-        for (var i = 0; i < data.length; i++){
+        for (var i = 0; i < num; i++){
             table.querySelector("tbody").insertAdjacentHTML("beforeend",`
                 <tr>
                     <td><a href="item.html">${data[i].Item}</td>
