@@ -23,38 +23,39 @@
 
 							<!-- Section -->
 							<section>
-                                <form method="post" action="#">
+                                <form action="/add" method="POST">
+                                    <fieldset>
                                     <div class="row gtr-uniform">
                                         <div class="col-6 col-12-xsmall">
-                                            <input type="text" placeholder="Name" />
+                                            <input type="text" placeholder="Name" name="item" required/>
                                         </div>
                                         <div class="col-6 col-12-xsmall">
-                                            <input type="text" placeholder="Supplier" />
+                                            <input type="text" placeholder="Supplier" name="supplier"/>
                                         </div>
                                         <div class="col-4 col-12-xsmall">
-                                            <input type="text" placeholder="Bin" />
+                                            <input type="text" placeholder="Bin" name="bin"/>
                                         </div>
                                         <div class="col-4 col-12-xsmall">
-                                            <input type="text" placeholder="Location" />
+                                            <input type="text" placeholder="Location" name="location"/>
                                         </div>
                                         <div class="col-4 col-12-xsmall">
-                                            <input type="text" placeholder="Number" />
+                                            <input type="text" placeholder="Number" name="number" required/>
                                         </div>
                                         <!-- Break -->
                                         
                                         <div class="col-3 col-12-small">
-                                            <input type="radio" id="demo-priority-low" name="demo-priority">
+                                            <input type="radio" id="demo-priority-low" name="tool">
                                             <label for="demo-priority-low">Tool</label>
                                         </div>
                                         <div class="col-3 col-12-small">
-                                            <input type="radio" id="demo-priority-normal" name="demo-priority">
+                                            <input type="radio" id="demo-priority-normal" name="consumable">
                                             <label for="demo-priority-normal">Consumable</label>
                                         </div>
             
                                         <!-- Break -->
                                         
                                         <div class="col-12">
-                                            <textarea name="demo-message" id="demo-message" placeholder="Notes" rows="6"></textarea>
+                                            <textarea name="demo-message" id="demo-message" placeholder="Notes" rows="6" name="notes"></textarea>
                                         </div>
                                         <!-- Break -->
                                         <div class="col-12">
@@ -65,6 +66,7 @@
                                             </ul>
                                         </div>
                                     </div>
+                                    </fieldset>
                                 </form>
 							</section>
 
