@@ -14,7 +14,7 @@ const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 1000 // limit each IP to 100 requests per windowMs
 });
-//app.use(limiter);
+app.use(limiter);
 
 var search_result={}
 var ind_result={}
@@ -95,7 +95,7 @@ app.get('/search_data', function(req, res, next) {
 
 app.post('/ind_item', function(req,res){
   console.log("Post Success");
-  console.log(req.body.Name)
+  //console.log(req.body.Name)
   conn.query("SELECT * FROM `7419-inventory`.items WHERE Item LIKE '%" +req.body.Name+"%'", function (err, ind_data, fields) {
     if (err) throw err;
     ind_result = ind_data
