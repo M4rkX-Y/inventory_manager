@@ -23,7 +23,7 @@
 
 							<!-- Section -->
 							<section>
-                                <form method="post" action="#">
+                                <form method="post" action="/delete" id="delete_item">
                                     <div class="row gtr-uniform" data-url="/ind_data">
                                 
                                         <div class="col-6 col-12-xsmall">
@@ -54,14 +54,14 @@
                                         <!-- Break -->
                                         
                                         <div class="col-12">
-                                            <h3>Notes:</h3>
+                                            <h2>Notes:</h2>
                                             <p id="note"></p>
                                         </div>
                                         <!-- Break -->
                                         <div class="col-12">
                                             <ul class="actions">
                                                 <li><a href="edit.html" class="button primary">Edit</a></li>
-                                                <li><a onclick="myconfirm()" class="button">Delete</a></li>
+                                                <li><button id="delete" form="delete_item" class="primary">Delete</button>
                                                 <li><a href="inventory.html" class="button">Back</a></li>
                                             </ul>
                                         </div>
@@ -79,14 +79,6 @@
 			<script src="/js/breakpoints.min.js"></script>
 			<script src="/js/util.js"></script>
 			<script src="/js/main.js"></script>
-            <script>
-                function myconfirm() {
-                  var txt;
-                  if (confirm("Are you sure to delete the entry?")) {
-                    window.location.href = "inventory.html";
-                  } 
-                }
-                </script>
 
 	</body>
 </html>

@@ -74,7 +74,6 @@ app.post('/add', function(req,res){
         return console.log(err.message);
       }
       console.log("New item has been added");
-    res.send("New item has been added into the database with Name = "+req.body.item);
     res.render("inventory");
     });
 });
@@ -93,6 +92,10 @@ app.get('/search_data', function(req, res, next) {
   res.json(search_result);
 });
 
+app.get('/item.html', function(req, res, next) {
+  res.render("item");
+});
+
 app.post('/ind_item', function(req,res){
   console.log("Post Success");
   //console.log(req.body.Name)
@@ -105,4 +108,23 @@ app.post('/ind_item', function(req,res){
 
 app.get('/ind_data', function(req, res, next) {
   res.json(ind_result);
+});
+
+app.post('/delete', function(req,res){
+  console.log("Post Success");
+  conn.query("DELETE FROM `7419-inventory`.items WHERE ID="+ind_result[0].ID, function (err, ind_data, fields) {
+    if (err) throw err;
+    res.render("inventory");
+});
+});
+
+app.post('/edit', function(req,res){
+  console.log("UPDATE `7419-inventory`.items SET Supplier='"+req.body.supplier+"', Item='"+req.body.item+"', Bin='"+req.body.bin+"', Location='"+req.body.location+"',Number="+req.body.number+", Note='"+req.body.note+"'WHERE ID="+ind_result[0].ID);
+  conn.query("UPDATE `7419-inventory`.items SET Supplier='"+req.body.supplier+"', Item='"+req.body.item+"', Bin='"+req.body.bin+"', Location='"+req.body.location+"',Number="+req.body.number+", Note='"+req.body.note+"'WHERE ID="+ind_result[0].ID, function(err)  {
+    if (err) {
+      return console.log(err.message);
+    }
+    console.log("Item has been edited");
+  res.render("inventory");
+  });
 });

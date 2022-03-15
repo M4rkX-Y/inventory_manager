@@ -23,22 +23,22 @@
 
 							<!-- Section -->
 							<section>
-                                <form method="post" action="#">
+                                <form method="post" action="/edit">
                                     <div class="row gtr-uniform">
                                         <div class="col-6 col-12-xsmall">
-                                            <input type="text" placeholder="Name" />
+                                            <input type="text" placeholder="Name" id="e_name" name="item" required/>
                                         </div>
                                         <div class="col-6 col-12-xsmall">
-                                            <input type="text" placeholder="Supplier" />
+                                            <input type="text" placeholder="Supplier" id="e_supplier" name="supplier"/>
                                         </div>
                                         <div class="col-4 col-12-xsmall">
-                                            <input type="text" placeholder="Bin" />
+                                            <input type="text" placeholder="Bin" id="e_bin" name="bin"/>
                                         </div>
                                         <div class="col-4 col-12-xsmall">
-                                            <input type="text" placeholder="Location" />
+                                            <input type="text" placeholder="Location" id="e_location" name="location"/>
                                         </div>
                                         <div class="col-4 col-12-xsmall">
-                                            <input type="text" placeholder="Number" />
+                                            <input type="text" placeholder="Number" id="e_number" name="number"/>
                                         </div>
                                         <!-- Break -->
                                         
@@ -54,7 +54,7 @@
                                         <!-- Break -->
                                         
                                         <div class="col-12">
-                                            <textarea name="demo-message" id="demo-message" placeholder="Notes" rows="6"></textarea>
+                                            <input type="text" placeholder="Note" rows="6" id="e_note" name="note"/>
                                         </div>
                                         <!-- Break -->
                                         <div class="col-12">
@@ -77,6 +77,7 @@
 			<script src="/js/breakpoints.min.js"></script>
 			<script src="/js/util.js"></script>
 			<script src="/js/main.js"></script>
+            <script src="/js/edit.js"></script>
 
 	</body>
 </html>
