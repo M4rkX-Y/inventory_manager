@@ -17,6 +17,7 @@ const limiter = rateLimit({
 //app.use(limiter);
 
 var search_result={}
+var ind_result={}
 
 
 app.set("view engine", "ejs");
@@ -48,11 +49,6 @@ app.get("/add.html", (req, res) => {
   res.render("edit");
  });
 
- app.post('/item', function(req,res){
-  console.log(req.body);
-  res.render("item");
- });
-
 app.get("/inventory.html", (req, res) => {
   res.render("inventory");
  });
@@ -73,7 +69,7 @@ app.get('/data', function(req, res, next) {
 
 app.post('/add', function(req,res){
     console.log("Post Success");
-    conn.query('INSERT INTO `7419-inventory`.items(Supplier, Item, Bin, Location, Number) VALUES(?,?,?,?,?)', [req.body.supplier, req.body.item, req.body.bin, req.body.location, req.body.number], function(err)  {
+    conn.query('INSERT INTO `7419-inventory`.items(Supplier, Item, Bin, Location, Number, Note) VALUES(?,?,?,?,?,?)', [req.body.supplier, req.body.item, req.body.bin, req.body.location, req.body.number, req.body.note], function(err)  {
       if (err) {
         return console.log(err.message);
       }
@@ -95,4 +91,18 @@ app.post('/search', function(req,res){
 
 app.get('/search_data', function(req, res, next) {
   res.json(search_result);
+});
+
+app.post('/ind_item', function(req,res){
+  console.log("Post Success");
+  console.log(req.body.Name)
+  conn.query("SELECT * FROM `7419-inventory`.items WHERE Item LIKE '%" +req.body.Name+"%'", function (err, ind_data, fields) {
+    if (err) throw err;
+    ind_result = ind_data
+    res.render("item");
+});
+});
+
+app.get('/ind_data', function(req, res, next) {
+  res.json(ind_result);
 });

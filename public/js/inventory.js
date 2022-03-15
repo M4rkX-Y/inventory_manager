@@ -22,7 +22,14 @@
           for (var i = 0; i < 50; i++){
             table.querySelector("tbody").insertAdjacentHTML("beforeend",`
                 <tr>
-                    <td><a href="item.html">${data[i].Item}</td>
+                    <td>
+                        <form method="post" action="/ind_item" class="inline">
+                        <input type="hidden" name="Name" value='${data[i].Item}'>
+                            <button type="submit" class="link-button">
+                            ${data[i].Item}
+                            </button>
+                        </form>
+                        </td>
                     <td>${data[i].Supplier}</td>
                     <td>${data[i].Bin}</td>
                     <td>${data[i].Location}</td>
@@ -95,7 +102,14 @@
         for (var i = 0; i < data.length; i++){
             table.querySelector("tbody").insertAdjacentHTML("beforeend",`
                 <tr>
-                    <td><a href="item.html">${data[i].Item}</td>
+                    <td>
+                        <form method="post" action="/ind_item" class="inline">
+                        <input type="hidden" name="Name" value='${data[i].Item}'>
+                            <button type="submit" class="link-button">
+                            ${data[i].Item}
+                            </button>
+                        </form>
+                        </td>
                     <td>${data[i].Supplier}</td>
                     <td>${data[i].Bin}</td>
                     <td>${data[i].Location}</td>
@@ -129,7 +143,7 @@
         for (var i = 0; i < data.length; i++){
             table.querySelector("tbody").insertAdjacentHTML("beforeend",`
                 <tr>
-                    <td><a href="item.html">${data[i].Item}</td>
+                    <td><a href="item.html" name="${data[i].Item}">${data[i].Item}</td>
                     <td>${data[i].Supplier}</td>
                     <td>${data[i].Bin}</td>
                     <td>${data[i].Location}</td>
@@ -162,7 +176,14 @@
         for (var i = 0; i < data.length; i++){
             table.querySelector("tbody").insertAdjacentHTML("beforeend",`
                 <tr>
-                    <td><a href="item.html">${data[i].Item}</td>
+                    <td>
+                        <form method="post" action="/ind_item" class="inline">
+                        <input type="hidden" name="Name" value='${data[i].Item}'>
+                            <button type="submit" class="link-button">
+                            ${data[i].Item}
+                            </button>
+                        </form>
+                        </td>
                     <td>${data[i].Supplier}</td>
                     <td>${data[i].Bin}</td>
                     <td>${data[i].Location}</td>
@@ -196,7 +217,14 @@
         for (var i = 0; i < data.length; i++){
             table.querySelector("tbody").insertAdjacentHTML("beforeend",`
                 <tr>
-                    <td><a href="item.html">${data[i].Item}</td>
+                    <td>
+                        <form method="post" action="/ind_item" class="inline">
+                        <input type="hidden" name="Name" value='${data[i].Item}'>
+                            <button type="submit" class="link-button">
+                            ${data[i].Item}
+                            </button>
+                        </form>
+                        </td>
                     <td>${data[i].Supplier}</td>
                     <td>${data[i].Bin}</td>
                     <td>${data[i].Location}</td>
@@ -230,7 +258,14 @@
         for (var i = 0; i < data.length; i++){
             table.querySelector("tbody").insertAdjacentHTML("beforeend",`
                 <tr>
-                    <td><a href="item.html">${data[i].Item}</td>
+                    <td>
+                        <form method="post" action="/ind_item" class="inline">
+                        <input type="hidden" name="Name" value='${data[i].Item}'>
+                            <button type="submit" class="link-button">
+                            ${data[i].Item}
+                            </button>
+                        </form>
+                        </td>
                     <td>${data[i].Supplier}</td>
                     <td>${data[i].Bin}</td>
                     <td>${data[i].Location}</td>
@@ -263,7 +298,14 @@
         for (var i = 0; i < data.length; i++){
             table.querySelector("tbody").insertAdjacentHTML("beforeend",`
                 <tr>
-                    <td><a href="item.html">${data[i].Item}</td>
+                    <td>
+                        <form method="post" action="/ind_item" class="inline">
+                        <input type="hidden" name="Name" value='${data[i].Item}'>
+                            <button type="submit" class="link-button">
+                            ${data[i].Item}
+                            </button>
+                        </form>
+                        </td>
                     <td>${data[i].Supplier}</td>
                     <td>${data[i].Bin}</td>
                     <td>${data[i].Location}</td>

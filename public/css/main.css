@@ -2424,6 +2424,22 @@ button,
 
   input[type='image'] {
     width: 25px;
+}
 
-
+.link-button {
+  margin-top: 5%;
+  background: none;
+  color: #f67878;
+  border: none;
+  border-image-width: 0%;
+  box-shadow: inset 0 0 0 0px #f56a6a;
+  cursor: pointer;
+  height: 0em;
+  border-radius: 0em;
+  text-transform: none;
+  letter-spacing: 0.0em;
+  line-height: 0em;
+  padding: 0 0 0em;
+  font-size: 0.9em;
+  font-weight: 100;
 }
