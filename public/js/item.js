@@ -12,15 +12,6 @@ async function getdata(url) {
     show(data);
 }
 
-document.querySelector(".delete").addEventListener("click", () => {
-    window.alert("test")
-    if(window.confirm("Are you sure?")){
-        document.getElementById("delete_item").submit();
-      } else {
-        return;
-      }
-    });
-
 
 
 function show(data){
@@ -29,6 +20,12 @@ function show(data){
     document.getElementById("supplier").innerHTML = data[0].Supplier;
     document.getElementById("bin").innerHTML = data[0].Bin;
     document.getElementById("location").innerHTML = data[0].Location;
+    if (data[0].Type==1){
+        document.getElementById("type").innerHTML = "Tool";
+    }
+    if(data[0].Type==0){
+        document.getElementById("type").innerHTML = "Consumable";
+    }
     document.getElementById("number").innerHTML = data[0].Number;
     document.getElementById("note").innerHTML = data[0].Note;
 

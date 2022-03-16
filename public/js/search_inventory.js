@@ -69,7 +69,7 @@
                 <tr>
                     <td>
                         <form method="post" action="/ind_item" class="inline">
-                        <input type="hidden" name="Name" value='${data[i].Item}'>
+                        <input type="hidden" name="ID" value='${data[i].ID}'>
                             <button type="submit" class="link-button">
                             ${data[i].Item}
                             </button>
@@ -110,7 +110,7 @@
                 <tr>
                     <td>
                         <form method="post" action="/ind_item" class="inline">
-                        <input type="hidden" name="Name" value='${data[i].Item}'>
+                        <input type="hidden" name="ID" value='${data[i].ID}'>
                             <button type="submit" class="link-button">
                             ${data[i].Item}
                             </button>
@@ -150,7 +150,7 @@
                 <tr>
                     <td>
                         <form method="post" action="/ind_item" class="inline">
-                        <input type="hidden" name="Name" value='${data[i].Item}'>
+                        <input type="hidden" name="ID" value='${data[i].ID}'>
                             <button type="submit" class="link-button">
                             ${data[i].Item}
                             </button>
@@ -191,7 +191,7 @@
                 <tr>
                     <td>
                         <form method="post" action="/ind_item" class="inline">
-                        <input type="hidden" name="Name" value='${data[i].Item}'>
+                        <input type="hidden" name="ID" value='${data[i].ID}'>
                             <button type="submit" class="link-button">
                             ${data[i].Item}
                             </button>
@@ -232,7 +232,7 @@
                 <tr>
                     <td>
                         <form method="post" action="/ind_item" class="inline">
-                        <input type="hidden" name="Name" value='${data[i].Item}'>
+                        <input type="hidden" name="ID" value='${data[i].ID}'>
                             <button type="submit" class="link-button">
                             ${data[i].Item}
                             </button>
@@ -272,7 +272,7 @@
                 <tr>
                     <td>
                         <form method="post" action="/ind_item" class="inline">
-                        <input type="hidden" name="Name" value='${data[i].Item}'>
+                        <input type="hidden" name="ID" value='${data[i].ID}'>
                             <button type="submit" class="link-button">
                             ${data[i].Item}
                             </button>

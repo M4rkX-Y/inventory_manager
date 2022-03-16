@@ -18,7 +18,8 @@ app.use(limiter);
 
 var search_result={}
 var ind_result={}
-
+var consumable={}
+var tool={}
 
 app.set("view engine", "ejs");
 app.use(express.static('public'));
@@ -31,17 +32,38 @@ app.use(limiter);
 
 app.get("/", (req, res) => {
   res.render("index");
- });
+  conn.query("SELECT * FROM `7419-inventory`.items WHERE Type = 1", function (err, tool_data, fields) {
+    if (err) throw err;
+    tool=tool_data
+  });
+  conn.query("SELECT * FROM `7419-inventory`.items WHERE Type = 0", function (err, consumable_data, fields) {
+    if (err) throw err;
+    consumable=consumable_data
+  });
+});
+
+
+app.get('/tool', function(req, res, next) {
+  res.json(tool);
+});
+
+app.get('/consumable', function(req, res, next) {
+  res.json(consumable);
+});
  
 app.get("/index.html", (req, res) => {
   res.render("index");
+  conn.query("SELECT * FROM `7419-inventory`.items WHERE Type = 1", function (err, tool_data, fields) {
+    if (err) throw err;
+    tool=tool_data
+  });
+  conn.query("SELECT * FROM `7419-inventory`.items WHERE Type = 0", function (err, consumable_data, fields) {
+    if (err) throw err;
+    consumable=consumable_data
+  });
  });
 
- app.get("/elements.html", (req, res) => {
-  res.render("elements");
- });
-
-app.get("/add.html", (req, res) => {
+ app.get("/add.html", (req, res) => {
   res.render("add");
  });
 
@@ -69,7 +91,14 @@ app.get('/data', function(req, res, next) {
 
 app.post('/add', function(req,res){
     console.log("Post Success");
-    conn.query('INSERT INTO `7419-inventory`.items(Supplier, Item, Bin, Location, Number, Note) VALUES(?,?,?,?,?,?)', [req.body.supplier, req.body.item, req.body.bin, req.body.location, req.body.number, req.body.note], function(err)  {
+    var type
+    if(req.body.tool){
+      type=1
+    }
+    else{
+      type=0
+    }
+    conn.query('INSERT INTO `7419-inventory`.items(Supplier, Item, Bin, Location, Number, Note, Type) VALUES(?,?,?,?,?,?,?)', [req.body.supplier, req.body.item, req.body.bin, req.body.location, req.body.number, req.body.note, type], function(err)  {
       if (err) {
         return console.log(err.message);
       }
@@ -99,7 +128,7 @@ app.get('/item.html', function(req, res, next) {
 app.post('/ind_item', function(req,res){
   console.log("Post Success");
   //console.log(req.body.Name)
-  conn.query("SELECT * FROM `7419-inventory`.items WHERE Item LIKE '%" +req.body.Name+"%'", function (err, ind_data, fields) {
+  conn.query("SELECT * FROM `7419-inventory`.items WHERE ID=" +req.body.ID, function (err, ind_data, fields) {
     if (err) throw err;
     ind_result = ind_data
     res.render("item");
@@ -119,8 +148,14 @@ app.post('/delete', function(req,res){
 });
 
 app.post('/edit', function(req,res){
-  console.log("UPDATE `7419-inventory`.items SET Supplier='"+req.body.supplier+"', Item='"+req.body.item+"', Bin='"+req.body.bin+"', Location='"+req.body.location+"',Number="+req.body.number+", Note='"+req.body.note+"'WHERE ID="+ind_result[0].ID);
-  conn.query("UPDATE `7419-inventory`.items SET Supplier='"+req.body.supplier+"', Item='"+req.body.item+"', Bin='"+req.body.bin+"', Location='"+req.body.location+"',Number="+req.body.number+", Note='"+req.body.note+"'WHERE ID="+ind_result[0].ID, function(err)  {
+  var type
+  if(req.body.tool){
+    type=1
+  }
+  else{
+    type=0
+  }
+  conn.query("UPDATE `7419-inventory`.items SET Supplier='"+req.body.supplier+"', Item='"+req.body.item+"', Bin='"+req.body.bin+"', Location='"+req.body.location+"',Number="+req.body.number+", Note='"+req.body.note+"', Type="+type+" WHERE ID="+ind_result[0].ID, function(err)  {
     if (err) {
       return console.log(err.message);
     }
